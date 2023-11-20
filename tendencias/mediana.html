@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos recabados</title>
+    <link rel="stylesheet" href="medi.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div id="header">  
+    </div>
+
+    <div id="content">
+        <div class="block1">
+            <div class="sub-block1">
+                <a href="../inicio/tendencias.html"><img src="../regresar.png" class="image-button" width="40" height="40"></a>
+            </div>
+            <div class="sub-block2">
+                <div class="title-container">
+                    <h1><span id="title">Mediana</span></h1>
+                </div>
+            </div>
+            <div class="sub-block3">
+                <a href="../inicio/index.html"><img src="../casa.png" class="image-button" width="40" height="40"></a>
+            </div>
+        </div>
+        <div class="block2">
+            <p class="description">La mediana es un número que nos ayuda a encontrar el valor "central" en un conjunto de datos, como una lista de números, donde primero ordenamos los números de menor a mayor; la mediana es el número que está justo en el medio.</p>
+        </div>
+        <div class="block3">
+            <center>
+                <div class ="bloque2">
+                    <input type="file" id="excelFile" accept=".xlsx" class="boton1"/>
+                </div>
+            
+            <button onclick="procesarArchivo()" class="boton">Procesar Archivo</button>
+            </center>
+        </div>
+        <div class="block3">
+            <table id="resultados">
+                <thead>
+                    <tr>
+                        <th>Operación</th>
+                        <th>Valor</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="excelTable"></div>
+            <script>
+                function procesarArchivo() {
+                    const inputFile = document.getElementById('excelFile');
+                    const archivo = inputFile.files[0];
+                    if (archivo) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            const data = e.target.result;
+                            const workbook = XLSX.read(data, { type: 'binary' });
+                            const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                            const excelData = XLSX.utils.sheet_to_json(sheet);
+                            
+                            const columnData1 = excelData.map((fila) => parseFloat(fila['¿Cuántos años tienes?']));
+                            const mediana1 = calcularMediana(columnData1);
+                            const columnData2 = excelData.map((fila) => parseFloat(fila['A']));
+                            const mediana2 = calcularMediana(columnData2);
+                            const columnData3 = excelData.map((fila) => parseFloat(fila['B']));
+                            const mediana3 = calcularMediana(columnData3);
+                            const columnData4 = excelData.map((fila) => parseFloat(fila['C']));
+                            const mediana4 = calcularMediana(columnData4);
+                            const columnData5 = excelData.map((fila) => parseFloat(fila['D']));
+                            const mediana5 = calcularMediana(columnData5);
+        
+                            // Muestra los resultados
+                            mostrarResultado("¿Cuántos años tienes?", mediana1, '19');
+                            mostrarResultado("¿A qué carrera perteneces?", mediana2, "Contaduria");
+                            mostrarResultado(" ¿Rentas algún departamento cerca de la universidad?", mediana3, "No");
+                            mostrarResultado("¿De donde vienes?", mediana4, "Otro");
+                            mostrarResultado("¿Qué genero eres?", mediana5, "Masculino");
+                        };
+                        reader.readAsBinaryString(archivo);
+                    }
+                }
+        
+                function calcularMediana(data) {
+                    // Primero, ordenamos los datos
+                    data.sort((a, b) => a - b);
+                
+                    // Luego, verificamos si la cantidad de datos es par o impar
+                    const n = data.length;
+                    if (n % 2 === 0) {
+                        // Si es par, la mediana es el promedio de los dos valores del medio
+                        const mitad = n / 2;
+                        const valor1 = data[mitad - 1];
+                        const valor2 = data[mitad];
+                        return (valor1 + valor2) / 2;
+                    } else {
+                        // Si es impar, la mediana es el valor del medio
+                        const mitad = Math.floor(n / 2);
+                        return data[mitad];
+                    }
+                }
+
+                function mostrarResultado(operacion, resultado, nombre) {
+                    const resultadosTable = document.querySelector("#resultados tbody");
+                    const row = resultadosTable.insertRow();
+                    const cellOperacion = row.insertCell(0);
+                    const cellResultado = row.insertCell(1);
+                    const cellNombre = row.insertCell(2);
+                    cellOperacion.innerHTML = operacion;
+                    cellResultado.innerHTML = resultado;
+                    cellNombre.innerHTML = nombre;
+                }
+            </script>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="footer-left">
+            12 - 15 años
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#header {
+    background-color: #6BCEF8;
+    padding: 22px 0;
+}
+
+#content {
+    background-color: #FFFFFF;
+    height: 490px;
+    display: flex;
+    flex-direction: column; /*Cambiar a dirección de columna para dividir en 3 bloques */
+    justify-content: center;
+    align-items: center;
+}
+
+.title-container {
+    text-align: center;
+}
+
+#title {
+    font-size: 50px;
+    text-align: center;
+    color: #31298B;
+    text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000; /* Contorno negro */
+    padding: 5px 10px;  /* Espaciado alrededor del texto */
+}
+
+.description {
+    font-size: 20px;
+    text-align: center;
+    color: #000000;
+}
+
+.block1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -70px;
+    padding: 15px 50px;
+}
+
+.sub-block1 {
+    margin: 9px 0; /* Espacio entre las partes del bloque */
+    margin-right: 530px;
+    margin-top: -185px;
+}
+
+.sub-block2 {
+    margin: 50px 0; /* Espacio entre las partes del bloque */
+    margin-top: -120px;
+}
+
+.sub-block3 {
+    margin: 9px 0; /* Espacio entre las partes del bloque */
+    margin-left: 530px;
+    margin-top: -180px;
+}
+
+.block3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.bloque2 {
+    margin: 5px 35px;
+    align-items: center;
+    margin-top: -5px;
+}
+
+table {
+    width: 800px; /* Ancho del 100% de su contenedor */
+    max-height: 100px; /* Altura máxima */
+    overflow-y: auto; /* Barras de desplazamiento vertical si es necesario */
+    background-color: #ecebeb;
+    border-collapse: collapse;
+}
+  
+tr {
+    padding: 0px 8px; /* Espacio interno en las celdas */
+    border: 3px solid  #8178fc; /*Borde en las celdas (opcional) */
+    text-align: center;
+}
+  
+th {
+    text-align: center;
+    border: 3px solid  #8178fc;
+}
+
+#footer {
+    text-align: center;
+    background-color: #6BCEF8;
+    color: #000000;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between; /* Colocar elementos al principio y al final del footer */
+    margin-top: 46px;
+}
+
+#footer-left {
+    padding-left: 17px;
+}
+
+
+.image-button {
+    cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+}
+
+.boton1{
+    display: inline-block;
+    cursor: pointer;
+    background: #007BFF;
+    color: #fff;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+}
+.boton {
+    background-color: #3af034;
+    border: 2px solid #28af3a;
+    padding: 3px 7px;
+}

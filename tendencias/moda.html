@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos recabados</title>
+    <link rel="stylesheet" href="mod.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div id="header">  
+    </div>
+
+    <div id="content">
+        <div class="block1">
+            <div class="sub-block1">
+                <a href="../inicio/tendencias.html"><img src="../regresar.png" class="image-button" width="40" height="40"></a>
+            </div>
+            <div class="sub-block2">
+                <div class="title-container">
+                    <h1><span id="title">Moda</span></h1>
+                </div>
+            </div>
+            <div class="sub-block3">
+                <a href="../inicio/index.html"><img src="../casa.png" class="image-button" width="40" height="40"></a>
+            </div>
+        </div>
+        <div class="block2">
+            <p class="description">Podemos definir la moda como un método  que se usa para encontrar el número que aparece con mayor frecuencia en un conjunto de datos. Imagina que tienes una lista de números, como las calificaciones de tus exámenes en la escuela, la moda seria la calificaión que mas veces has obtenido a lo largo de un periodo.</p>
+        </div>
+        <div class="block3">
+            <center>
+                <div class ="bloque2">
+                    <input type="file" id="excelFile" accept=".xlsx" class="boton1"/>
+                </div>
+            
+            <button onclick="procesarArchivo()" class="boton">Procesar Archivo</button>
+            </center>
+        </div>
+        <div class="block3">
+            <table id="resultados">
+                <thead>
+                    <tr>
+                        <th>Operación</th>
+                        <th>Valor</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="excelTable"></div>
+            <script>
+                function procesarArchivo() {
+                    const inputFile = document.getElementById('excelFile');
+                    const archivo = inputFile.files[0];
+                    if (archivo) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            const data = e.target.result;
+                            const workbook = XLSX.read(data, { type: 'binary' });
+                            const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                            const excelData = XLSX.utils.sheet_to_json(sheet);
+                            
+                            const columnData1 = excelData.map((fila) => parseFloat(fila['¿Cuántos años tienes?']));
+                            const moda1 = calcularModa(columnData1);
+                            const columnData2 = excelData.map((fila) => parseFloat(fila['A']));
+                            const moda2 = calcularModa(columnData2);
+                            const columnData3 = excelData.map((fila) => parseFloat(fila['B']));
+                            const moda3 = calcularModa(columnData3);
+                            const columnData4 = excelData.map((fila) => parseFloat(fila['C']));
+                            const moda4 = calcularModa(columnData4);
+                            const columnData5 = excelData.map((fila) => parseFloat(fila['D']));
+                            const moda5 = calcularModa(columnData5);
+        
+                            // Muestra los resultados
+                            mostrarResultado("¿Cuántos años tienes?", moda1, '19');
+                            mostrarResultado("¿A qué carrera perteneces?", moda2, "Mecatronica");
+                            mostrarResultado(" ¿Rentas algún departamento cerca de la universidad?", moda3, "No");
+                            mostrarResultado("¿De donde vienes?", moda4, "Otro");
+                            mostrarResultado("¿Qué genero eres?", moda5, "Masculino");
+                        };
+                        reader.readAsBinaryString(archivo);
+                    }
+                }
+        
+                function calcularModa(data) {
+                    // Primero, vamos a contar la frecuencia de cada elemento
+                    const frecuencia = {};
+                    data.forEach((data) => {
+                        if (!frecuencia[data]) {
+                            frecuencia[data] = 1;
+                        } else {
+                            frecuencia[data]++;
+                        }
+                    });
+                    // Encontramos el valor más frecuente (la moda)
+                    let moda = [];
+                    let maxFrecuencia = 0;
+                    for (const data in frecuencia) {
+                        if (frecuencia[data] > maxFrecuencia) {
+                            moda = [data];
+                            maxFrecuencia = frecuencia[data];
+                        } else if (frecuencia[data] === maxFrecuencia) {
+                            moda.push(data);
+                        }
+                    }
+                    return moda;
+                }
+
+                function mostrarResultado(operacion, resultado, nombre) {
+                    const resultadosTable = document.querySelector("#resultados tbody");
+                    const row = resultadosTable.insertRow();
+                    const cellOperacion = row.insertCell(0);
+                    const cellResultado = row.insertCell(1);
+                    const cellNombre = row.insertCell(2);
+                    cellOperacion.innerHTML = operacion;
+                    cellResultado.innerHTML = resultado;
+                    cellNombre.innerHTML = nombre;
+                }
+            </script>
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <div id="footer-left">
+            12 - 15 años
+        </div>
+    </div>
+</body>
+</html>

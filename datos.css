@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#header {
+    background-color: #6BCEF8;
+    padding: 22px 0;
+}
+
+#content {
+    background-color: #FFFFFF;
+    height: auto;
+    display: flex;
+    flex-direction: column; /*Cambiar a dirección de columna para dividir en 3 bloques */
+    justify-content: center;
+    align-items: center;
+}
+
+.title-container {
+    text-align: center;
+}
+
+#title {
+    font-size: 60px;
+    text-align: center;
+    color: #31298B;
+    text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000; /* Contorno negro */
+    padding: 5px 5px;  /* Espaciado alrededor del texto */
+}
+
+.description {
+    font-size: 20px;
+    text-align: center;
+    color: #000000;
+}
+
+.block1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloque2 {
+    margin: 50px;
+    align-items: center;
+    
+}
+table {
+    width: 1210px; /* Ancho del 100% de su contenedor */
+    max-height: 200px; /* Altura máxima */
+    overflow-y: auto; /* Barras de desplazamiento vertical si es necesario */
+    background-color: #ecebeb;
+    border-collapse: collapse;
+}
+  
+td {
+    padding: 0px 8px; /* Espacio interno en las celdas */
+    border: 3px solid  #8178fc; /*Borde en las celdas (opcional) */
+    text-align: center;
+}
+  
+th {
+    text-align: center;
+}
+
+.sub-block1 {
+    margin: 0px 0; /* Espacio entre las partes del bloque */
+    margin-right: 410px;
+    margin-top: -115px;
+}
+
+.sub-block2 {
+    margin: 40px 0; /* Espacio entre las partes del bloque */
+    margin-top: 0px;
+}
+
+.sub-block3 {
+    margin: 0px 0; /* Espacio entre las partes del bloque */
+    margin-left: 410px;
+    margin-top: -110px;
+}
+
+#footer {
+    text-align: center;
+    background-color: #6BCEF8;
+    color: #000000;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between; /* Colocar elementos al principio y al final del footer */
+    margin-top: 260px;
+}
+
+#footer-left {
+    padding-left: 10px;
+}
+
+
+.image-button {
+    cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+}

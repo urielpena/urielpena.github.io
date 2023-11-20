@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#header {
+    background-color: #6BCEF8;
+    padding: 22px 0;
+}
+
+#content {
+    background-color: #FFFFFF;
+    height: 497px;
+    display: flex;
+    flex-direction: column; /*Cambiar a dirección de columna para dividir en 3 bloques */
+    justify-content: center;
+    align-items: center;
+}
+
+.title-container {
+    text-align: center;
+}
+
+#title {
+    font-size: 50px;
+    text-align: center;
+    color: #31298B;
+    text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000; /* Contorno negro */
+    padding: 5px 10px;  /* Espaciado alrededor del texto */
+}
+
+.description {
+    font-size: 20px;
+    text-align: center;
+    color: #000000;
+}
+
+.block1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-block1 {
+    margin: 9px 0; /* Espacio entre las partes del bloque */
+    margin-right: 530px;
+    margin-top: -25px;
+}
+
+.sub-block2 {
+    margin: 20px 0; /* Espacio entre las partes del bloque */
+    margin-top: 10px;
+}
+
+.sub-block3 {
+    margin: 9px 0; /* Espacio entre las partes del bloque */
+    margin-left: 520px;
+    margin-top: -15px;
+}
+
+.block2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.sub-block21 {
+    margin: 20px 0; /* Espacio entre las partes del bloque */
+    text-align: center;
+    /*margin-top: 50px;*/
+}
+
+.sub-block22 {
+    margin: 20px 0; /* Espacio entre las partes del bloque */
+    text-align: center;
+    /*margin-top: 50px;*/
+}
+
+.sub-block23 {
+    margin: 20px 0; /* Espacio entre las partes del bloque */
+    text-align: center;
+    /*margin-top: 50px;*/
+}
+
+.block3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-block31 {
+    margin: 20px 0; /* Espacio entre las partes del bloque */
+    text-align: center;
+}
+
+.sub-block32 {
+    margin: 20px 0; /* Espacio entre las partes del bloque */
+    text-align: center;
+}
+#footer {
+    text-align: center;
+    background-color: #6BCEF8;
+    color: #000000;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between; /* Colocar elementos al principio y al final del footer */
+    margin-top: 39px;
+}
+
+#footer-left {
+    padding-left: 10px;
+}
+
+.image-button {
+    cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+}
